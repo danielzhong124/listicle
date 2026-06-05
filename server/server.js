@@ -1,10 +1,13 @@
 import express from 'express';
+import decksRouter from './routes/decks.js';
 
 const app = express();
 const PORT = process.env.PORT || 3001;
 
 app.use('/public', express.static('./public'));
 app.use('/scripts', express.static('./public/scripts'));
+
+app.use('/decks', decksRouter);
 
 app.get('/', (req, res) => {
   res
