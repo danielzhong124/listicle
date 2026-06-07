@@ -1,51 +1,49 @@
 const renderDecks = async () => {
+  const mainContent = document.getElementById('main-content');
+
   const response = await fetch('/decks');
+  if (response.ok) {
+    const data = await response.json();
 
-  if (!response.ok) {
-    const errorBody = await response.text();
-    console.error('Failed to load decks:', response.status, response.statusText, errorBody);
-    throw new Error(`Failed to load decks: ${response.status} ${response.statusText}`);
-  }
+    if (data) {
+      data.forEach((deck) => {
+        const card = document.createElement('article');
+        card.classList.add('card');
 
-  const text = await response.text();
-  if (!text) {
-    throw new Error('Empty response received from /decks');
-  }
+        const cardHeader = document.createElement('header');
+        const cardImage = document.createElement('img');
+        cardImage.src = deck.image;
+        cardImage.alt = deck.name;
+        cardHeader.appendChild(cardImage);
 
-  let data;
-  try {
-    data = JSON.parse(text);
-  } catch (error) {
-    console.error('Invalid JSON received from /decks:', text);
-    throw error;
-  }
+        const cardTitle = document.createElement('h3');
+        cardTitle.textContent = deck.name;
 
-  const main = document.getElementById('main-content');
-  if (data && data.length) {
-    data.forEach((deck) => {
-      const card = document.createElement('article');
-      card.classList.add('card');
+        const cardText = document.createElement('p');
+        cardText.textContent = deck.set;
 
-      const cardHeader = document.createElement('header');
-      const cardImage = document.createElement('img');
-      cardImage.src = deck.image;
-      cardImage.alt = deck.name;
-      cardHeader.appendChild(cardImage);
+        const cardButton = document.createElement('a');
+        cardButton.role = 'button';
+        cardButton.href = `/decks/${deck.id}`;
+        cardButton.textContent = 'View Deck';
+        cardButton.classList.add('secondary');
 
-      const cardText = document.createElement('h3');
-      cardText.textContent = deck.name;
+        card.appendChild(cardHeader);
 
-      card.appendChild(cardHeader);
-      card.appendChild(cardText);
-      main.appendChild(card);
-    });
+        card.appendChild(cardTitle);
+        card.appendChild(cardText);
+        card.appendChild(cardButton);
+        mainContent.appendChild(card);
+      });
+    } else {
+      const message = document.createElement('h2');
+      message.textContent = 'No Decks Found';
+      mainContent.appendChild(message);
+    }
   } else {
-    const msg = document.createElement('h2');
-    msg.textContent = 'No Decks Found';
-    main.appendChild(msg);
+    const message = document.createElement('h2');
+    message.textContent = 'No Decks Found';
+    mainContent.appendChild(message);
   }
 };
-
-renderDecks().catch((error) => {
-  console.error(error);
-});
+renderDecks();
