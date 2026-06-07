@@ -1,4 +1,4 @@
-const header = document.querySelector('header');
+const header = document.querySelector('body > header');
 
 const headerContainer = document.createElement('div');
 headerContainer.classList.add('container');

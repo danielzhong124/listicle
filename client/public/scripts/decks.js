@@ -20,11 +20,23 @@ const renderDecks = async () => {
     throw error;
   }
 
-  const main = document.querySelector('main');
+  const main = document.getElementById('main-content');
   if (data && data.length) {
     data.forEach((deck) => {
       const card = document.createElement('article');
-      card.textContent = deck.name;
+      card.classList.add('card');
+
+      const cardHeader = document.createElement('header');
+      const cardImage = document.createElement('img');
+      cardImage.src = deck.image;
+      cardImage.alt = deck.name;
+      cardHeader.appendChild(cardImage);
+
+      const cardText = document.createElement('h3');
+      cardText.textContent = deck.name;
+
+      card.appendChild(cardHeader);
+      card.appendChild(cardText);
       main.appendChild(card);
     });
   } else {

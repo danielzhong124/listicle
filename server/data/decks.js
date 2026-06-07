@@ -5,6 +5,7 @@ const decks = [
     set: 'Secrets of Strixhaven Commander',
     commander: 'Killian, Decisive Mentor',
     colors: ['W', 'B'],
+    image: 'https://files.mtg.wiki/SOC_Silverquill_Influence.png',
   },
 
   {
@@ -13,6 +14,7 @@ const decks = [
     set: 'Secrets of Strixhaven Commander',
     commander: 'Rootha, Mastering the Moment',
     colors: ['U', 'R'],
+    image: 'https://files.mtg.wiki/SOC_Prismari_Artistry.png',
   },
 
   {
@@ -21,6 +23,7 @@ const decks = [
     set: 'Secrets of Strixhaven Commander',
     commander: 'Dina, Essence Brewer',
     colors: ['B', 'G'],
+    image: 'https://files.mtg.wiki/SOC_Witherbloom_Pestilence.png',
   },
 
   {
@@ -29,6 +32,7 @@ const decks = [
     set: 'Secrets of Strixhaven Commander',
     commander: 'Quintorius, History Chaser',
     colors: ['R', 'W'],
+    image: 'https://files.mtg.wiki/SOC_Lorehold_Spirit.png',
   },
 
   {
@@ -37,6 +41,7 @@ const decks = [
     set: 'Secrets of Strixhaven Commander',
     commander: 'Zimone, Infinite Analyst',
     colors: ['G', 'U'],
+    image: 'https://files.mtg.wiki/SOC_Quandrix_Unlimited.png',
   },
 ];
 

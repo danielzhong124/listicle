@@ -20,10 +20,15 @@ const renderDecks = async () => {
     throw error;
   }
 
-  const main = document.querySelector('main');
+  const main = document.getElementById('main-content');
   if (data && data.length) {
     data.forEach((deck) => {
       const card = document.createElement('article');
+      const cardImg = document.createElement('img');
+      cardImg.src = deck.image;
+      cardImg.alt = deck.name;
+
+      card.appendChild(cardImg);
       card.textContent = deck.name;
       main.appendChild(card);
     });
