@@ -39,7 +39,7 @@ Here's a walkthrough of implemented required features:
 
 <!-- Replace this with whatever GIF tool you used! -->
 
-GIF created with ... Add GIF tool here
+GIF created with ... LiceCAP
 
 <!-- Recommended tools:
 [Kap](https://getkap.co/) for macOS
