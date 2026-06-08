@@ -40,10 +40,12 @@ const renderDecks = async () => {
       message.textContent = 'No Decks Found';
       mainContent.appendChild(message);
     }
-  } else {
-    const message = document.createElement('h2');
-    message.textContent = 'No Decks Found';
-    mainContent.appendChild(message);
   }
 };
-renderDecks();
+
+const requestedUrl = window.location.pathname.split('/').pop();
+if (requestedUrl) {
+  window.location.href = '../404.html';
+} else {
+  renderDecks();
+}

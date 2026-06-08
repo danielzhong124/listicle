@@ -16,6 +16,10 @@ const renderDeck = async () => {
         document.getElementById('deck-commander').textContent = `Commander: ${deck.commander.name}`;
         document.getElementById('commander-image').src = deck.commander.image;
         document.getElementById('commander-image').alt = deck.commander.name;
+      } else {
+        const message = document.createElement('h2');
+        message.textContent = 'Deck Not Found';
+        document.getElementById('deck-info').appendChild(message);
       }
     }
   }

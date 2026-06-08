@@ -9,7 +9,7 @@ headerTitle.textContent = 'MTG Commander Precons';
 const headerButton = document.createElement('a');
 headerButton.role = 'button';
 headerButton.href = '/';
-headerButton.textContent = 'All Decks';
+headerButton.textContent = 'Browse Precons';
 
 headerContainer.appendChild(headerTitle);
 headerContainer.appendChild(headerButton);
