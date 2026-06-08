@@ -1,4 +1,4 @@
-# WEB103 Project 1 - MTG Commander Precons
+# WEB103 Project 1 - Listicle
 
 Submitted by: Daniel Zhong
 
