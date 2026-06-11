@@ -1,10 +1,13 @@
-const renderDecks = async () => {
+async function renderDecks() {
   const mainContent = document.getElementById('main-content');
 
-  const response = await fetch('/decks');
-  if (response.ok) {
-    const data = await response.json();
+  try {
+    const response = await fetch('/decks');
+    if (!response.ok) {
+      throw new Error(`Response status: ${response.status}`);
+    }
 
+    const data = await response.json();
     if (data) {
       data.forEach((deck) => {
         const card = document.createElement('article');
@@ -33,6 +36,7 @@ const renderDecks = async () => {
         card.appendChild(cardTitle);
         card.appendChild(cardText);
         card.appendChild(cardButton);
+
         mainContent.appendChild(card);
       });
     } else {
@@ -40,12 +44,17 @@ const renderDecks = async () => {
       message.textContent = 'No Decks Found';
       mainContent.appendChild(message);
     }
+  } catch (error) {
+    console.error(error);
+    const message = document.createElement('h2');
+    message.textContent = 'Error loading data. Please try again later.';
+    mainContent.appendChild(message);
   }
-};
+}
 
 const requestedUrl = window.location.pathname.split('/').pop();
 if (requestedUrl) {
-  window.location.href = '../404.html';
+  window.location.replace('../404.html');
 } else {
   renderDecks();
 }
