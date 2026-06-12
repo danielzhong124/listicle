@@ -1,4 +1,4 @@
-# WEB103 Project 1 - MTG Commander Precons
+# WEB103 Project 1 - Listicle
 
 Submitted by: Daniel Zhong
 
@@ -39,7 +39,7 @@ Here's a walkthrough of implemented required features:
 
 <!-- Replace this with whatever GIF tool you used! -->
 
-GIF created with ... Add GIF tool here
+GIF created with ... LICEcap
 
 <!-- Recommended tools:
 [Kap](https://getkap.co/) for macOS
