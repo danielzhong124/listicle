@@ -15,10 +15,10 @@ const renderDeck = async () => {
       document.getElementById('deck-image').src = deck.image;
       document.getElementById('deck-image').alt = deck.name;
       document.getElementById('deck-set').textContent = `Set: ${deck.set}`;
-      document.getElementById('deck-colors').textContent = `Colors: ${deck.colors.join('/')}`;
-      document.getElementById('deck-commander').textContent = `Commander: ${deck.commander.name}`;
-      document.getElementById('commander-image').src = deck.commander.image;
-      document.getElementById('commander-image').alt = deck.commander.name;
+      document.getElementById('deck-colors').textContent = `Colors: ${deck.colors.join(', ')}`;
+      document.getElementById('deck-commander').textContent = `Commander: ${deck.commander}`;
+      document.getElementById('commander-image').src = deck.commanderImage;
+      document.getElementById('commander-image').alt = deck.commander;
     } else {
       const deckContent = document.getElementById('deck-content');
       deckContent.textContent = '';

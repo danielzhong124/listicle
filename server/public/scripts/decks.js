@@ -22,8 +22,15 @@ async function renderDecks() {
         const cardTitle = document.createElement('h3');
         cardTitle.textContent = deck.name;
 
-        const cardText = document.createElement('p');
-        cardText.textContent = deck.set;
+        const cardColors = document.createElement('p');
+        deck.colors.forEach((color) => {
+          const colorIcon = document.createElement('i');
+          colorIcon.classList.add('ms', 'ms-cost', `ms-${color}`);
+          cardColors.appendChild(colorIcon);
+        });
+
+        const cardSet = document.createElement('p');
+        cardSet.textContent = deck.set;
 
         const cardButton = document.createElement('a');
         cardButton.role = 'button';
@@ -32,9 +39,9 @@ async function renderDecks() {
         cardButton.classList.add('secondary');
 
         card.appendChild(cardHeader);
-
         card.appendChild(cardTitle);
-        card.appendChild(cardText);
+        card.appendChild(cardColors);
+        card.appendChild(cardSet);
         card.appendChild(cardButton);
 
         mainContent.appendChild(card);

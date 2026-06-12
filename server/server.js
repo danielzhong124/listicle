@@ -1,4 +1,5 @@
 import express from 'express';
+import './config/dotenv.js';
 import decksRouter from './routes/decks.js';
 
 const app = express();
