@@ -1,5 +1,5 @@
 const renderDeck = async () => {
-  const requestedID = window.location.pathname.split('/').pop();
+  const requestedID = parseInt(window.location.pathname.split('/').pop());
 
   try {
     const response = await fetch('/decks');
@@ -17,7 +17,7 @@ const renderDeck = async () => {
       document.getElementById('deck-set').textContent = `Set: ${deck.set}`;
       document.getElementById('deck-colors').textContent = `Colors: ${deck.colors.join(', ')}`;
       document.getElementById('deck-commander').textContent = `Commander: ${deck.commander}`;
-      document.getElementById('commander-image').src = deck.commanderImage;
+      document.getElementById('commander-image').src = deck.commander_image;
       document.getElementById('commander-image').alt = deck.commander;
     } else {
       const deckContent = document.getElementById('deck-content');

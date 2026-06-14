@@ -11,9 +11,10 @@ const createDecksTable = async () => {
         name VARCHAR(255) NOT NULL,
         image VARCHAR(255) NOT NULL,
         set VARCHAR(255) NOT NULL,
+        release_date DATE NOT NULL,
         colors VARCHAR(10)[] NOT NULL,
         commander VARCHAR(255) NOT NULL,
-        commanderImage VARCHAR(255) NOT NULL
+        commander_image VARCHAR(255) NOT NULL
     )
 `;
 
@@ -30,16 +31,17 @@ const seedDecksTable = async () => {
 
   deckData.forEach((deck) => {
     const insertQuery = {
-      text: 'INSERT INTO decks (name, image, set, colors, commander, commanderImage) VALUES ($1, $2, $3, $4, $5, $6)',
+      text: 'INSERT INTO decks (name, image, set, release_date, colors, commander, commander_image) VALUES ($1, $2, $3, $4, $5, $6, $7)',
     };
 
     const values = [
       deck.name,
       deck.image,
       deck.set,
+      deck.release_date,
       deck.colors,
       deck.commander,
-      deck.commanderImage,
+      deck.commander_image,
     ];
 
     pool.query(insertQuery, values, (err, res) => {
