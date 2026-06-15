@@ -31,7 +31,8 @@ The following **additional** features are implemented:
 
 Here's a walkthrough of implemented required features:
 
-<img src='https://i.imgur.com/V1TMSvi.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='https://i.imgur.com/OQTo612.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='https://i.imgur.com/FfaRQqf.gif' title='Table Contents' width='' alt='Table Contents' />
 
 <!-- Replace this with whatever GIF tool you used! -->
 
